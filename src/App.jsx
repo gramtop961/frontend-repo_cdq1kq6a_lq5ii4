@@ -1,28 +1,46 @@
-import { useState } from 'react'
+import Hero from './components/Hero';
+import Features from './components/Features';
+import HowItWorks from './components/HowItWorks';
+import CTAForm from './components/CTAForm';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+function Header() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
-        </div>
+    <header className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
+      <div className="flex items-center gap-2">
+        <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-indigo-500 to-emerald-400" />
+        <span className="text-lg font-semibold text-white">Flames AI Builder</span>
       </div>
-    </div>
-  )
+      <nav className="hidden gap-6 text-white/80 sm:flex">
+        <a href="#features" className="hover:text-white">Fonctionnalités</a>
+        <a href="#how" className="hover:text-white">Process</a>
+        <a href="#start" className="hover:text-white">Commencer</a>
+      </nav>
+    </header>
+  );
 }
 
-export default App
+function Footer() {
+  return (
+    <footer className="mx-auto max-w-6xl px-6 py-10 text-sm text-white/60">
+      <div className="flex flex-col-reverse items-center justify-between gap-4 sm:flex-row">
+        <p>© {new Date().getFullYear()} Flames • Génération de sites et apps 100% IA</p>
+        <div className="flex items-center gap-4">
+          <a className="hover:text-white" href="#">Conditions</a>
+          <a className="hover:text-white" href="#">Confidentialité</a>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+export default function App() {
+  return (
+    <div className="min-h-screen bg-[#0B0B10]">
+      <Hero />
+      <div id="features"><Features /></div>
+      <div id="how"><HowItWorks /></div>
+      <div id="start"><CTAForm /></div>
+      <Footer />
+    </div>
+  );
+}
